@@ -5,12 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="./assets/payoo.png" type="image/x-icon" />
     <title>Payoo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.8/daisyui.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
-  <body>
+  <body class="bg-slate-900">
     <header>
-        <nav>
-            <h1>Hello</h1>
-        </nav>
+      <section class="max-w-md min-h-screen mx-auto bg-[#F4F5F7] relative">
+        <div class="flex flex-col justify-center items-center relative pt-24">
+          <img src="./assets/bg.png" alt="" />
+          <img class="absolute top-32 ml-6" src="./assets/Group.png" alt="" />
+        </div>
+
+        <!-- login form -->
+        <div>
+          <div class="hero-content flex-col">
+            <div class="bg-base-100 rounded-lg shrink-0 shadow-2xl absolute">
+              <div class="p-8">
+                <fieldset class="fieldset">
+                  <label class="fieldset-label">Mobile Number</label>
+                  <input
+                    type="Number"
+                    class="input w-78 rounded-full border-none bg-slate-100"
+                    placeholder="Enter Your Number"
+                  />
+                  <label class="fieldset-label mt-5">4 Digit Pin</label>
+                  <input type="password" class="input w-78 rounded-full
+                  border-none bg-slate-100"" placeholder="Password" />
+                  <button class="btn bg-[#167BF3] mt-4 rounded-full text-white">
+                    Login
+                  </button>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </header>
     <main></main>
     <footer></footer>
