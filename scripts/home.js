@@ -6,7 +6,10 @@ document.getElementById("add-money-btn").addEventListener("click", (e) => {
   const afterAdding = parseInt(remainingAmount) + parseFloat(amountToAdd);
   const pin = document.getElementById("pin").value;
   const convertedPin = parseInt(pin);
-
+ if (afterAdding < 0) {
+   alert("Enter Positive Amount!");
+   return;
+ }
   if (convertedPin === 1234) {
     document.getElementById("remaining-amount").innerText = afterAdding;
     alert("Money Added Successfully");
@@ -24,9 +27,16 @@ document.getElementById("cash-out-btn").addEventListener("click", (e) => {
   const afterWithdraw = parseInt(remainingAmount) - parseInt(withdrawAmount);
   const pin = document.getElementById("cash-out-pin").value;
   const convertedPin = parseInt(pin);
+ 
+  if(withdrawAmount > remainingAmount){
+    alert('You have not enough money!')
+    return
+  }
+  
+
   if (convertedPin === 1234) {
     if (withdrawAmount <= 0) {
-      alert("Enter amount");
+      alert("Enter positive amount");
     } else {
       document.getElementById("remaining-amount").innerText = afterWithdraw;
       alert("Cash Out successful!");
@@ -84,4 +94,8 @@ document.getElementById("pay-bill").addEventListener("click", () => {
   document.getElementById("pay-bill-form").style.display = "block";
 });
 
-//
+//logout
+document.getElementById("logOut-btn").addEventListener("click", (e) => {
+  e.preventDefault();
+  window.location.href = "../index.html";
+});
