@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="./assets/payoo.png" type="image/x-icon" />
-    <title>Payoo</title>
+    <title>Payoo || Login</title>
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.8/daisyui.css"
       rel="stylesheet"
@@ -28,14 +28,21 @@
                 <fieldset class="fieldset">
                   <label class="fieldset-label">Mobile Number</label>
                   <input
+                    id="mobile-number"
+                    value="01546454151"
                     type="Number"
                     class="input w-78 rounded-full border-none bg-slate-100"
                     placeholder="Enter Your Number"
+                    required
                   />
                   <label class="fieldset-label mt-5">4 Digit Pin</label>
-                  <input type="password" class="input w-78 rounded-full
-                  border-none bg-slate-100"" placeholder="Password" />
-                  <button class="btn bg-[#167BF3] mt-4 rounded-full text-white">
+                  <input id="pin-number" value="1234" type="text" class="input
+                  w-78 rounded-full border-none bg-slate-100""
+                  placeholder="Password" required />
+                  <button
+                    id="login-btn"
+                    class="btn bg-[#167BF3] mt-4 rounded-full text-white"
+                  >
                     Login
                   </button>
                 </fieldset>
