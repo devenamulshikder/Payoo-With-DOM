@@ -1,3 +1,4 @@
+// add money formula
 document.getElementById("add-money-btn").addEventListener("click", (e) => {
   e.preventDefault();
   const amountToAdd = document.getElementById("ammount-to-add").value;
@@ -11,6 +12,27 @@ document.getElementById("add-money-btn").addEventListener("click", (e) => {
     alert("Money Added Successfully");
   } else {
     alert("Invalid Pin Number");
+  }
+});
+
+// cash out formula
+document.getElementById("cash-out-btn").addEventListener("click", (e) => {
+  e.preventDefault();
+  const withdrawAmount = document.getElementById("withdraw-amount").value;
+
+  const remainingAmount = document.getElementById("remaining-amount").innerText;
+  const afterWithdraw = parseInt(remainingAmount) - parseInt(withdrawAmount);
+  const pin = document.getElementById("cash-out-pin").value;
+  const convertedPin = parseInt(pin);
+  if (convertedPin === 1234) {
+    if (withdrawAmount <= 0) {
+      alert("Enter amount");
+    } else {
+      document.getElementById("remaining-amount").innerText = afterWithdraw;
+      alert("Cash Out successful!");
+    }
+  } else {
+    alert("Provide your valid PIN...");
   }
 });
 
@@ -62,5 +84,4 @@ document.getElementById("pay-bill").addEventListener("click", () => {
   document.getElementById("pay-bill-form").style.display = "block";
 });
 
-
-// 
+//
