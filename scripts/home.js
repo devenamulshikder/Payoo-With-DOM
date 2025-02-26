@@ -6,10 +6,10 @@ document.getElementById("add-money-btn").addEventListener("click", (e) => {
   const afterAdding = parseInt(remainingAmount) + parseFloat(amountToAdd);
   const pin = document.getElementById("pin").value;
   const convertedPin = parseInt(pin);
- if (afterAdding < 0) {
-   alert("Enter Positive Amount!");
-   return;
- }
+  if (afterAdding < 0) {
+    alert("Enter Positive Amount!");
+    return;
+  }
   if (convertedPin === 1234) {
     document.getElementById("remaining-amount").innerText = afterAdding;
     alert("Money Added Successfully");
@@ -22,24 +22,49 @@ document.getElementById("add-money-btn").addEventListener("click", (e) => {
 document.getElementById("cash-out-btn").addEventListener("click", (e) => {
   e.preventDefault();
   const withdrawAmount = document.getElementById("withdraw-amount").value;
-
   const remainingAmount = document.getElementById("remaining-amount").innerText;
-  const afterWithdraw = parseInt(remainingAmount) - parseInt(withdrawAmount);
+  const floatWithdraw = parseFloat(withdrawAmount);
+  const floatRemaining = parseFloat(remainingAmount);
+  const afterWithdraw = floatRemaining - floatWithdraw;
   const pin = document.getElementById("cash-out-pin").value;
   const convertedPin = parseInt(pin);
- 
-  if(withdrawAmount > remainingAmount){
-    alert('You have not enough money!')
-    return
+  if (floatWithdraw > floatRemaining) {
+    alert("You have not enough money!");
+    return;
   }
-  
-
   if (convertedPin === 1234) {
     if (withdrawAmount <= 0) {
       alert("Enter positive amount");
     } else {
       document.getElementById("remaining-amount").innerText = afterWithdraw;
       alert("Cash Out successful!");
+    }
+  } else {
+    alert("Provide your valid PIN...");
+  }
+});
+
+// transfer money formula
+document.getElementById("transfer-money-btn").addEventListener("click", (e) => {
+  e.preventDefault();
+  const transferAmount = document.getElementById("transfer-amount").value;
+  const remainingAmount = document.getElementById("remaining-amount").innerText;
+
+  const floatTransferAmount = parseFloat(transferAmount);
+  const floatRemainingAmount = parseFloat(remainingAmount);
+  const afterTransfer = floatRemainingAmount - floatTransferAmount;
+  const pin = document.getElementById("transfer-pin").value;
+  const convertedPin = parseInt(pin);
+  if (floatTransferAmount > floatRemainingAmount) {
+    alert("You have not enough money! for Transfer");
+    return;
+  }
+  if (convertedPin === 1234) {
+    if (transferAmount <= 0) {
+      alert("Enter positive amount");
+    } else {
+      document.getElementById("remaining-amount").innerText = afterTransfer;
+      alert("Money Transfer successful!");
     }
   } else {
     alert("Provide your valid PIN...");
